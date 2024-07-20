@@ -31,4 +31,4 @@ Explica cómo resolviste este desafío. ¿Qué herramientas o técnicas utilizas
 📝 Instrucciones para Ejecutar el Proyecto
 Aquí van las instrucciones para que otros puedan ejecutar el proyecto en sus propias máquinas. Incluye pasos específicos y comandos necesarios:
 
-![logo Henry](src/images/Henry/LOGO-HENRY-04.png)
+![logo Henry](src/images/Henry/Soy-Henry-logo.jpg)
