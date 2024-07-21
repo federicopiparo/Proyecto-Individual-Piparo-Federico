@@ -1,10 +1,14 @@
 
 ![BannerHenry](src/images/Henry/HEADER-BLOG-NEGRO-01.jpg)
 
+---
 
 
 # 🚀 Proyecto-Individual-Piparo-Federico
-¡Bienvenido al repositorio del proyecto individual de Federico Piparo! 🎉 Aquí encontrarás toda la información necesaria para entender y explorar el proyecto.
+
+####  ¡Bienvenido al repositorio del proyecto individual de Federico Piparo! 🎉 Aquí encontrarás toda la información necesaria para entender y explorar el proyecto.
+
+---
 
 📚 Descripción del Proyecto
 Aquí va una breve descripción del proyecto. Explica de manera general qué es el proyecto, cuál es su propósito y qué se espera lograr con él. Por ejemplo:
