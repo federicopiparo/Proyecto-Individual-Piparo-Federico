@@ -10,13 +10,31 @@
 
 ---
 
-📚 Descripción del Proyecto
-Aquí va una breve descripción del proyecto. Explica de manera general qué es el proyecto, cuál es su propósito y qué se espera lograr con él. Por ejemplo:
+#### 📚 Descripción del Proyecto
+al tratarse este proyecto de una evaluación más allá de un proyecto real, explicaré las decisiones y problemas que me hayan surgido a lo largo de este, aparte de aclaraciones sobre el funcionamiento de este, dividiendolo en las diferentes "partes" del mismo.
 
-Este proyecto se centra en [describir el objetivo principal del proyecto]. Se ha diseñado para [explicar qué problemas resuelve o qué beneficios ofrece].
+En muy pocas palabras el proyecto consiste en
+
+
+#### Aclaraciones generales 
+
+Aclarar tambien que la carpeta Movies contiene las tablas originales, sin transformaciones, en caso de no no ejecutar el archivo `Transformaciones.ipynb` este no tendría ninguna utilidad. En caso de querer ejecutarlo, deberás cambiar la ruta que se ve a continuación a la ruta en la que se encuentre la carpeta "Movies"
+
+
+
+![RutaDeMovies](src/images/Henry/rutapd.JPG)
+
+ El archivo `.gitattributes`  en general se utiliza para configurar cómo Git maneja ciertos archivos en tu repositorio. En este caso `.csv filter=lfs diff=lfs merge=lfs -text` indica que todos los archivos .csv deben ser gestionados por Git LFS y se excluyen de las diferencias y fusiones normales de texto.
+
+---
+
+# Transformaciones
+
 
 🛠️ Desafíos y Soluciones
-En esta sección, detalla los principales desafíos que encontraste y cómo los resolviste. Utiliza emojis para hacer la lectura más amena:
+
+Aun que sea algo obvio, en caso de querer 
+Formato CSV: el formato CSV no admite tipos de datos "compuestos" como lo son diccionarios o columnas, por lo cual fue necesario implementar una función que analice la estructura de los datos, y en caso de cumplir con la de una lista o un diccionario los transforme en uno de estos. 
 
 🧩 Desafío 1: [Nombre del Desafío]
 Descripción:
