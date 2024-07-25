@@ -1,5 +1,5 @@
 
-![BannerHenry](src/images/Henry/HEADER-BLOG-NEGRO-01.jpg)
+![BannerHenry](images/Henry/HEADER-BLOG-NEGRO-01.jpg)
 
 ---
 
@@ -22,7 +22,7 @@ Aclarar tambien que la carpeta Movies contiene las tablas originales, sin transf
 
 
 
-![RutaDeMovies](src/images/Henry/rutapd.JPG)
+![RutaDeMovies](images/Henry/rutapd.JPG)
 
  El archivo `.gitattributes`  en general se utiliza para configurar cómo Git maneja ciertos archivos en tu repositorio. En este caso `.csv filter=lfs diff=lfs merge=lfs -text` indica que todos los archivos .csv deben ser gestionados por Git LFS y se excluyen de las diferencias y fusiones normales de texto.
 
@@ -53,4 +53,4 @@ Explica cómo resolviste este desafío. ¿Qué herramientas o técnicas utilizas
 📝 Instrucciones para Ejecutar el Proyecto
 Aquí van las instrucciones para que otros puedan ejecutar el proyecto en sus propias máquinas. Incluye pasos específicos y comandos necesarios:
 
-![logo Henry](src/images/Henry/Soy-Henry-logo.jpg)
+![logo Henry](images/Henry/Soy-Henry-logo.jpg)
