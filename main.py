@@ -11,28 +11,13 @@ app = FastAPI()
 # Configuración de directorio base
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Verificar que las rutas de templates y static existan
-templates_dir = os.path.join(base_dir, "web/templates")
-static_dir = os.path.join(base_dir, "web/static")
-
-if not os.path.isdir(templates_dir):
-    raise FileNotFoundError(f"La ruta de templates '{templates_dir}' no existe.")
-if not os.path.isdir(static_dir):
-    raise FileNotFoundError(f"La ruta de archivos estáticos '{static_dir}' no existe.")
-
 # Configuración de templates y static files
-templates = Jinja2Templates(directory=templates_dir)
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+templates = Jinja2Templates(directory=os.path.join(base_dir, "web/templates"))
+app.mount("/static", StaticFiles(directory=os.path.join(base_dir, "web/static")), name="static")
 
-# Cargar los DataFrames globalmente con manejo de errores
-try:
-    df = pd.read_parquet(os.path.join(base_dir, 'Transformaciones', 'transformados.parquet'))
-    # Convertir la columna 'release_date' a datetime
-    df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
-except FileNotFoundError:
-    raise FileNotFoundError("El archivo 'transformados.parquet' no fue encontrado en la ruta especificada.")
-except Exception as e:
-    raise Exception(f"Ocurrió un error al cargar el DataFrame: {e}")
+# Cargar los DataFrames globalmente
+df = pd.read_parquet(os.path.join(base_dir, 'Transformaciones', 'transformados.parquet'))
+df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
