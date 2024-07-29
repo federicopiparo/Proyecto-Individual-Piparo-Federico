@@ -6,7 +6,6 @@ import pandas as pd
 import os
 
 
-
 app = FastAPI()
 
 # Cargar los DataFrames globalmente
