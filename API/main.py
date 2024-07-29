@@ -3,16 +3,24 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import pandas as pd
+import os
+
 
 
 app = FastAPI()
 
 # Cargar los DataFrames globalmente
-df = pd.read_parquet('Transformaciones/transformados.parquet')
+df = pd.read_parquet('C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\Transformaciones\\transformados.parquet')
+
+app = FastAPI()
+
+# Configuración de directorio base
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Configuración de templates y static files
-templates = Jinja2Templates(directory="../web/templates")
-app.mount("/static", StaticFiles(directory="../web/static"), name="static")
+templates = Jinja2Templates(directory=os.path.join(base_dir, "web/templates"))
+app.mount("/static", StaticFiles(directory=os.path.join(base_dir, "web/static")), name="static")
+
 
 # Convertir la columna 'release_date' a datetime
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
