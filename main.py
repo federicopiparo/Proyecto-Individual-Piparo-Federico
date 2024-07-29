@@ -6,7 +6,6 @@ import pandas as pd
 import os
 import uvicorn
 
-
 app = FastAPI()
 
 # Configuración de directorio base
@@ -19,7 +18,7 @@ app.mount("/static", StaticFiles(directory=os.path.join(base_dir, "web/static"))
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run(app, host="0.0.0.0", port=port)
-    
+# Cargar los DataFrames globalmente
 # Cargar los DataFrames globalmente
 df = pd.read_parquet('Transformaciones\\transformados.parquet')
 # Convertir la columna 'release_date' a datetime
