@@ -4,12 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import pandas as pd
 import os
+import uvicorn
 
-
-app = FastAPI()
-
-# Cargar los DataFrames globalmente
-df = pd.read_parquet('Transformaciones\\transformados.parquet')
 
 app = FastAPI()
 
@@ -20,7 +16,12 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 templates = Jinja2Templates(directory=os.path.join(base_dir, "web/templates"))
 app.mount("/static", StaticFiles(directory=os.path.join(base_dir, "web/static")), name="static")
 
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+    
+# Cargar los DataFrames globalmente
+df = pd.read_parquet('Transformaciones\\transformados.parquet')
 # Convertir la columna 'release_date' a datetime
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 
