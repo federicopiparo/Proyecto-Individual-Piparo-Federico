@@ -15,6 +15,9 @@ app.mount("/static", StaticFiles(directory="web/static"), name="static")
 # Cargar los DataFrames globalmente
 df = pd.read_parquet('Transformaciones/transformados.parquet')
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
+# Asegurarse de que 'Nombre_Director' no tenga valores None
+df['Nombre_Director'] = df['Nombre_Director'].fillna('')
+
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
