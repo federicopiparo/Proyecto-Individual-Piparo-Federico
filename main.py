@@ -8,15 +8,12 @@ import uvicorn
 
 app = FastAPI()
 
-# Configuración de directorio base
-base_dir = os.path.dirname(os.path.abspath(__file__))
-
 # Configuración de templates y static files
-templates = Jinja2Templates(directory=os.path.join(base_dir, "web/templates"))
-app.mount("/static", StaticFiles(directory=os.path.join(base_dir, "web/static")), name="static")
+templates = Jinja2Templates(directory="C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\web\\templates")
+app.mount("/static", StaticFiles(directory="C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\web\\static"), name="static")
 
 # Cargar los DataFrames globalmente
-df = pd.read_parquet(os.path.join(base_dir, 'Transformaciones', 'transformados.parquet'))
+df = pd.read_parquet('C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\Transformaciones\\transformados.parquet')
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 
 @app.get("/", response_class=HTMLResponse)
@@ -124,8 +121,6 @@ def get_actor(parameter):
 
 @app.get("/api/get_director")
 def get_director(parameter):
-    
-    df.fillna("", inplace=True)
 
     director_df = df[df['Nombre_Director'].apply(lambda x: parameter in x)]
     
