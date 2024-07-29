@@ -9,11 +9,11 @@ import uvicorn
 app = FastAPI()
 
 # Configuración de templates y static files
-templates = Jinja2Templates(directory="C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\web\\templates")
-app.mount("/static", StaticFiles(directory="C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\web\\static"), name="static")
+templates = Jinja2Templates(directory="web/templates")
+app.mount("/static", StaticFiles(directory="web/static"), name="static")
 
 # Cargar los DataFrames globalmente
-df = pd.read_parquet('C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\Transformaciones\\transformados.parquet')
+df = pd.read_parquet('Transformaciones/transformados.parquet')
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 df['Nombre_Director'] = df['Nombre_Director'].fillna('')
 
