@@ -64,6 +64,7 @@ def cantidad_filmaciones_mes(parameter: str):
     
     return {"message": f"{cantidad} cantidad de películas fueron estrenadas en el mes de {parameter}"}
 
+
 @app.get("/api/cantidad_filmaciones_dia")
 def cantidad_filmaciones_dia(parameter: str):
     dias = {
