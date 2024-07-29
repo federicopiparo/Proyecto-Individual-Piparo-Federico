@@ -15,6 +15,7 @@ app.mount("/static", StaticFiles(directory="C:\\Users\\fede\\Desktop\\LABs 1\\Pr
 # Cargar los DataFrames globalmente
 df = pd.read_parquet('C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\Transformaciones\\transformados.parquet')
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
+df['Nombre_Director'] = df['Nombre_Director'].fillna('')
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
