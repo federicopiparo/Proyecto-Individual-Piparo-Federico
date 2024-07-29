@@ -9,7 +9,7 @@ import os
 app = FastAPI()
 
 # Cargar los DataFrames globalmente
-df = pd.read_parquet('Transformaciones\\transformados.parquet')
+df = pd.read_parquet('Transformaciones/transformados.parquet')
 
 app = FastAPI()
 
