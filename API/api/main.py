@@ -8,7 +8,7 @@ import pandas as pd
 app = FastAPI()
 
 # Cargar los DataFrames globalmente
-df = pd.read_parquet('C:\\Users\\fede\\Desktop\\LABs 1\\Proyecto individual - Federico Piparo\\Transformaciones\\transformados.parquet')
+df = pd.read_parquet('Transformaciones/transformados.parquet')
 
 # Configuración de templates y static files
 templates = Jinja2Templates(directory="../web/templates")
