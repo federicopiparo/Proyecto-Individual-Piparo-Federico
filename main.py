@@ -16,7 +16,7 @@ app.mount("/static", StaticFiles(directory="web/static"), name="static")
 
 # Cargar los DataFrames globalmente
 dftitulos = pd.read_parquet("Transformaciones/df_titulos.parquet")
-#data = np.load('Transformaciones/similitud_del_coseno.npy')
+data = np.load('Transformaciones/similitud_del_coseno.npy')
 df = pd.read_parquet('Transformaciones/transformados.parquet')
 df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 # Asegurarse de que 'Nombre_Director' no tenga valores None
