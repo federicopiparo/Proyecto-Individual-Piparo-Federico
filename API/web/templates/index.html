@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Enlace a CSS si lo tienes -->
+</head>
+<body>
+    <header>
+        <h1>API Machine Learning Operations - Federico Piparo</h1>
+        <p>Esta página permite interactuar con la API para obtener diferentes tipos de datos relacionados con filmaciones.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Seleccionar una función</h2>
+            <form id="function-form">
+                <label for="functions">Elige una función:</label>
+                <select id="functions" name="functions">
+                    <option value="cantidad_filmaciones_mes">cantidad_filmaciones_mes(Mes)</option>
+                    <option value="cantidad_filmaciones_dia">cantidad_filmaciones_dia(Dia)</option>
+                    <option value="score_titulo">score_titulo(titulo_de_la_filmación)</option>
+                    <option value="votos_titulo">votos_titulo(titulo_de_la_filmación)</option>
+                    <option value="get_actor">get_actor(nombre_actor)</option>
+                    <option value="get_director">get_director(nombre_director)</option>
+                    <option value="recomendacion">recomendacion(titulo_de_la_filmación)</option>
+                </select>
+                <label for="parameter">Parámetro:</label>
+                <input type="text" id="parameter" name="parameter" placeholder="Escribe el parámetro aquí">
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section>
+            <h2>Resultado de la función:</h2>
+            <div id="result">
+                <!-- Aquí se mostrará el resultado de la función -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; PROYECTO INDIVIDUAL Nº1
+            Machine Learning Operations (MLOps), SoyHenry.</p>
+    </footer>
+    <script>
+        document.getElementById('function-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+            const functionSelect = document.getElementById('functions');
+            const selectedFunction = functionSelect.value;
+            const parameterInput = document.getElementById('parameter');
+            const parameterValue = parameterInput.value;
+
+            // Redirigir a la API con la función seleccionada y el parámetro
+            fetch(`/api/${selectedFunction}?parameter=${encodeURIComponent(parameterValue)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Mostrar el resultado de la función en el div 'result'
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
+
