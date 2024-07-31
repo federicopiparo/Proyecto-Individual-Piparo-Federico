@@ -143,7 +143,7 @@ def get_director(parameter):
 
     }
     
-'''@app.get("/api/recomendacion")   
+@app.get("/api/recomendacion")   
 def recomendacion(parameter: str):
     if parameter not in dftitulos['title'].values:
         return {"error": "Título no encontrado"}
@@ -153,7 +153,7 @@ def recomendacion(parameter: str):
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)[1:6]
     recommendations = [dftitulos.iloc[i[0]]['title'] for i in sim_scores]
 
-    return {"recommendations": recommendations}'''
+    return {"recommendations": recommendations}
 
 
 if __name__ == "__main__":
