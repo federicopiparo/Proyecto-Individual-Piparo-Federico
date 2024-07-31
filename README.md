@@ -1,5 +1,5 @@
 
-![BannerHenry](images/Henry/HEADER-BLOG-NEGRO-01.jpg)
+![BannerHenry](src/Henry/HEADER-BLOG-NEGRO-01.jpg)
 
 ---
 
